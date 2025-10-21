@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="weatherApp.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+            <div class="placeDate">
+                <p id="cityP">Toronto</p>
+                <p id="dateP">friday | 31 August | 12:05 PM</p>
+            </div>
+            <div class="searchForm">
+                <form>
+                    <input type="text" placeholder="Enter city name">
+                    <button>Search</button>
+                </form>
+            </div>
+        </header>
+
+        <main>
+            <div class="temp_weather">
+                <div class="temp">15</div>
+                <div class="weather">partly cloudy</div>
+            </div>
+            <div class="img_weatherData">
+                <div class="weatherImg">
+                    <img >
+                </div>
+                <div class="weatherData">
+                    <p>info1</p>
+                    <p>info1</p>
+                    <p>info1</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="toggle">
+                <p>Today</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="modeToggle">
+                    <span class="slider"></span>
+                </label>
+                <p>Week</p>
+
+            </div>
+            <div class="forecastCards">
+                <div class="forecast" id="f1">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>
+                <div class="forecast" id="f2">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>
+                <div class="forecast" id="f3">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>
+                <div class="forecast" id="f4">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>
+                <div class="forecast" id="f5">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>    
+                <div class="forecast" id="f6">
+                    <p class="forecastDay">1</p>
+                    <img class="forecastImg">
+                    <p class="forecastTemp"></p>
+                    <p class="forecastWeather"></p>
+                </div>
+            </div>
+            
+        </footer>
+    </div>
+    <script src="weatherApp.js"></script>
+</body>
+</html>

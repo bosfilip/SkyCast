@@ -25,7 +25,7 @@ p {
     backdrop-filter: blur(5px);
     border-radius: 15px;
     width: 80%;
-    height: 490px;
+    height: auto;
     min-width: 760px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     overflow: hidden;
@@ -35,10 +35,8 @@ header{
     margin: 10px;
     display:flex ;
     justify-content: space-between;
-    background-color: green;
 }
 .placeDate{
-    background-color: aqua;
     margin: 10px;
     width: 50%;
     height: 60px;
@@ -55,7 +53,6 @@ header{
 }
 .searchForm{
     position:relative;
-    background-color: aquamarine;
     margin: 10px;
     width: 50%;
     display: flex;
@@ -96,13 +93,11 @@ header{
 main{
     height: 180px;
     margin: 10px;
-    background-color: lightblue;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
 }
 .temp_weather{
-    background-color: rgb(132, 201, 201);
     margin: 10px;
     margin-right: 100px;
     width: 50%;
@@ -111,7 +106,6 @@ main{
     height: 135px;
 }
 .tempDiv{
-    background-color: rgb(240, 240, 92);
     margin: 10px;
     width: auto;
     display: flex;
@@ -120,43 +114,44 @@ main{
 }
 .tempDiv p {
     font-size: 90px;
+    font-weight: 400;
 }
 .weatherDiv{
-    background-color: rgb(102, 102, 33);
     margin: 10px;
     width: 100%;
     margin-bottom: 34px;
 }
 .celsiusP1 {
-    background-color: beige;
     height:80%;
     display: flex;
     align-items: end;
 }  
 .celsiusP1 p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     font-size: 62px;
     line-height: 0.85;
 }
 .weatherP{
     margin: 0;
-    background-color:orange;
     height: 20%;
     display: flex;
-
+}
+.weatherP p{
+    font-weight: 600;
 }
 .img_weatherData{
-    background-color: beige;
     margin: 5px;
     width: 50%;
     display: flex;
     flex-direction: row;
     height: 135px;
+    justify-content: end;
     align-items: center;
 }
 .weatherImg {
-    background-color: rgb(240, 240, 92);
     margin: 10px;
-    width: 50%;
+    auto
     height: 100%;
     display: flex;
     justify-content: center;
@@ -172,18 +167,21 @@ main{
 }
 
 .weatherData{
-    background-color: rgb(102, 102, 33);
     margin-right: 10px;
-    width: 67%;
+    width: 190px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 90px;
+    align-items: end;
 }
 .wData{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.wData p{
+    font-weight: 500;
 }
 .wData img{
     margin-right: 8px;
@@ -191,18 +189,20 @@ main{
     height: 22px;
 }
 footer{
-    height: 150px;
+    height: auto;
     margin: 10px;
-    background-color: brown;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
+    padding:10px;
 }
 .forecastCards {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80%;
-    padding: 0 10px;
+    padding: 10px;
 }
 
 .forecast {
@@ -257,6 +257,7 @@ footer{
     height: 80%;
 }
 .toggle{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -266,67 +267,42 @@ footer{
     margin-left: 10px;
     margin-right: 10px;
 }
-.forecast{
-    background-color: azure;
-    margin: 10px;
-    width:  20%;
-    
-}
-
-/*.temp_weather{
-    background-color: beige;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100px;
-}
-.img_weatherData{
-    background-color: olive;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.weatherImg {
-
-}
-.weatherImg img {
-  height: 20%;
-}*/
-
 .toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 22px;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
 }
 .toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: blue;
-  transition: 0.4s;
-  border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: blue;
+    transition: 0.4s;
+    border-radius: 34px;
 }
 .slider::before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 3px;
-  bottom: 3px;
-  background-color: rgb(233, 233, 233);
-  transition: 0.4s;
-  border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(233, 233, 233);
+    transition: 0.4s;
+    border-radius: 50%;
 }
 .toggle-switch input:checked + .slider {
-  background-color: orange;
+    background-color: orange;
 }
 .toggle-switch input:checked + .slider::before {
-  transform: translateX(18px);
+    transform: translateX(18px);
 }

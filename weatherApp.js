@@ -28,8 +28,29 @@ function dataPlacer(data){
     const {name: city,
            main: {temp,feels_like,humidity},
            wind: windSpeed,
+          } = data.weatherData
+    
+    forecast = {}
+    let cardId = 0
 
-    } = data.weatherData
-    const {} = data.forecastData
-    console.log(data.forecastData)
+    for (let i=0; i<6; i++){
+        cardId += 1 
+        const forecastItem = data.forecastData.list[i]
+        const {dt_txt,
+               main: {temp_min,
+                      temp_max},
+               weather: 
+                     {0:{id,
+                         description}}} = forecastItem
+        const dt_txtParts = dt_txt.split(' ');
+        card = {
+            time: dt_txtParts[1],
+            tempMinCard: temp_min,
+            tempMaxCard: temp_max,
+            weatherIdCard: id,
+            weatherDescriptionCard: description
+        };
+        forecast[cardId] = card;
+    }
+    console.log(forecast)
 }

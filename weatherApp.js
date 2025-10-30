@@ -27,11 +27,12 @@ async function getApiData(city){
 function dataPlacer(data){
     const {name: city,
            main: {temp,feels_like,humidity},
-           wind: windSpeed,
+           wind: {speed: windSpeed}
           } = data.weatherData
-    
+    console.log(data.weatherData)
     forecast = {}
     let cardId = 0
+    console.log(data.weatherData)
 
     for (let i=0; i<6; i++){
         cardId += 1 
@@ -52,5 +53,39 @@ function dataPlacer(data){
         };
         forecast[cardId] = card;
     }
-    console.log(forecast)
+
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth(); 
+    const year = today.getFullYear();
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+
+    const formatedDate = `${day}-${month}-${year}`
+    const formatedTime = `${hours}:${minutes}:${seconds}`
+    const todaySpan = `${formatedDate} | ${formatedTime}`
+    console.log(todaySpan)
+
+    const cityOut = document.querySelector('#cityP');
+    const todayOut = document.querySelector('#dateP');
+    const tempOut = document.querySelector('#temp');
+    const weatherInfoOut = document.querySelector('#weatherP');
+    const feelsLikeData = document.querySelector('#feelsLike');
+    const humidityData = document.querySelector('#humidity');
+    const windSpeedData = document.querySelector('#windSpeed');
+
+    cityOut.textContent = city;
+    todayOut.textContent = todaySpan; 
+    tempOut.textContent = temp.toFixed(1);
+    weatherInfoOut.textContent = forecast[1].weatherDescriptionCard;
+    feelsLikeData.textContent = `Feels like: ${feels_like}`;
+    humidityData.textContent = `Humidity: ${humidity}`;
+    windSpeedData.textContent = `Wind: ${windSpeed}`;
+    
+    const hourCard1 = document.querySelector('#hourCard1');
+    const tempCard1 = document.querySelector('#tempCard1');
+    const weatherCard1 = document.querySelector('#weatherCard1');
+    hourCard1.textContent = forecast[1].time 
+
 }

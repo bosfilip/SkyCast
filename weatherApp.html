@@ -33,7 +33,7 @@
                 </div>
                 <div class="weatherDiv">
                     <div class="celsiusP1"><p>°C</p></div>
-                    <div class="weatherP"><p>Partly cloudy</p></div>
+                    <div class="weatherP" id="weatherP"><p>Partly cloudy</p></div>
                 </div>
             </div>
             <div class="img_weatherData">
@@ -41,59 +41,51 @@
                     <img src="/weatherIcons/sun.png">
                 </div>
                 <div class="weatherData">
-                    <div class="wData"><img src="/icons/thermometer (1).png"><p>Feels like: 31°C</p></div>
-                    <div class="wData"><img src="/icons/humidity.png"><p>Humidity: 15%</p></div>
-                    <div class="wData"><img src="/icons/windy.png"><p>Wind: 14 km/h</p></div>
+                    <div class="wData"><img src="/icons/thermometer (1).png"><p id="feelsLike">Feels like: 31°C</p></div>
+                    <div class="wData"><img src="/icons/humidity.png"><p id="humidity">Humidity: 15%</p></div>
+                    <div class="wData"><img src="/icons/windy.png"><p id="windSpeed">Wind: 14 km/h</p></div>
                 </div>
             </div>
         </main>
         
         <footer>
-            <div class="toggle">
-                <p>Today</p>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="modeToggle">
-                    <span class="slider"></span>
-                </label>
-                <p>Week</p>
-
-            </div>
+            
             <div class="forecastCards">
                 <div class="forecast" id="f1">
-                    <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <p id="hourCard1" class="forecastDay">Thursday</p>
+                    <img id="imgCard1" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard1" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard1" class="forecastWeather">Overcast Clouds</p>
                 </div>
                 <div class="forecast" id="f2">
-                    <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <p id="hourCard2" class="forecastDay">Thursday</p>
+                    <img id="imgCard2" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard2" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard2" class="forecastWeather">Overcast Clouds</p>
                 </div>
                 <div class="forecast" id="f3">
-                    <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <p id="hourCard3" class="forecastDay">Thursday</p>
+                    <img id="imgCard3" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard3" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard3" class="forecastWeather">Overcast Clouds</p>
                 </div>
-                <div class="forecast" id="f4">
+                <div id="hourCard4" class="forecast" id="f4">
                     <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <img id="imgCard4" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard5" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard4" class="forecastWeather">Overcast Clouds</p>
                 </div>
                 <div class="forecast" id="f5">
-                    <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <p id="hourCard5" class="forecastDay">Thursday</p>
+                    <img id="imgCard5" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard5" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard5" class="forecastWeather">Overcast Clouds</p>
                 </div>
-                <div class="forecast" id="f6">
+                <div id="hourCard6" class="forecast" id="f6">
                     <p class="forecastDay">Thursday</p>
-                    <img class="forecastImg" src="/weatherIcons/sun.png">
-                    <p class="forecastTemp">23°C - 14°C</p>
-                    <p class="forecastWeather">Overcast Clouds</p>
+                    <img id="imgCard6" class="forecastImg" src="/weatherIcons/sun.png">
+                    <p id="tempCard6" class="forecastTemp">23°C - 14°C</p>
+                    <p id="weatherCard6" class="forecastWeather">Overcast Clouds</p>
                 </div>
             </div>
             

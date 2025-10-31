@@ -1,6 +1,12 @@
 const cityBut = document.querySelector('#cityBut');
 const apiKey = "02d142c9c813666fb42479e9631860fa";
 
+window.addEventListener('load', async () => {
+    const defaultCity = "Warsaw";
+    const data = await getApiData(defaultCity);
+    dataPlacer(data);
+});
+
 cityBut.addEventListener('click', async event =>{
     event.preventDefault();
     const city = document.querySelector('#cityIn').value;
@@ -55,37 +61,35 @@ function dataPlacer(data){
     }
 
     const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth(); 
-    const year = today.getFullYear();
-    const hours = today.getHours();
-    const minutes = today.getMinutes();
-    const seconds = today.getSeconds();
+    const formatedDate = today.toLocaleDateString();
+    const formatedTime = today.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    const todaySpan = `${formatedDate} | ${formatedTime}`;
 
-    const formatedDate = `${day}-${month}-${year}`
-    const formatedTime = `${hours}:${minutes}:${seconds}`
-    const todaySpan = `${formatedDate} | ${formatedTime}`
-    console.log(todaySpan)
+    document.querySelector('#cityP').textContent = city;
+    document.querySelector('#dateP').textContent = todaySpan; 
+    document.querySelector('#temp').textContent = temp.toFixed(1);
+    document.querySelector('#weatherP').textContent = forecast[1].weatherDescriptionCard;
+    document.querySelector('#feelsLike').textContent = `Feels like: ${feels_like}°C`;
+    document.querySelector('#humidity').textContent = `Humidity: ${humidity}%`;
+    document.querySelector('#windSpeed').textContent = `Wind: ${windSpeed} km/h`;
 
-    const cityOut = document.querySelector('#cityP');
-    const todayOut = document.querySelector('#dateP');
-    const tempOut = document.querySelector('#temp');
-    const weatherInfoOut = document.querySelector('#weatherP');
-    const feelsLikeData = document.querySelector('#feelsLike');
-    const humidityData = document.querySelector('#humidity');
-    const windSpeedData = document.querySelector('#windSpeed');
-
-    cityOut.textContent = city;
-    todayOut.textContent = todaySpan; 
-    tempOut.textContent = temp.toFixed(1);
-    weatherInfoOut.textContent = forecast[1].weatherDescriptionCard;
-    feelsLikeData.textContent = `Feels like: ${feels_like}`;
-    humidityData.textContent = `Humidity: ${humidity}`;
-    windSpeedData.textContent = `Wind: ${windSpeed}`;
-    
-    const hourCard1 = document.querySelector('#hourCard1');
-    const tempCard1 = document.querySelector('#tempCard1');
-    const weatherCard1 = document.querySelector('#weatherCard1');
-    hourCard1.textContent = forecast[1].time 
-
+    for (let i = 1; i <= 6; i++){
+        const hourCard = document.querySelector(`#hourCard${i}`);
+        const tempCard = document.querySelector(`#tempCard${i}`);
+        const weatherCard = document.querySelector(`#weatherCard${i}`);
+        const imgCard = document.querySelector(`#imgCard${i}`);
+        const f = forecast[i];
+        if (hourCard && tempCard && weatherCard && imgCard && f){
+            hourCard.textContent = f.time;
+            tempCard.textContent = `${f.tempMinCard.toFixed(1)}°C - ${f.tempMaxCard.toFixed(1)}°C`;
+            weatherCard.textContent = f.weatherDescriptionCard;
+            let icon = "/weatherIcons/sun.png";
+            if (f.weatherIdCard >= 200 && f.weatherIdCard < 600) icon = "/weatherIcons/rain.png";
+            else if (f.weatherIdCard >= 600 && f.weatherIdCard < 700) icon = "/weatherIcons/snow.png";
+            else if (f.weatherIdCard >= 700 && f.weatherIdCard < 800) icon = "/weatherIcons/fog.png";
+            else if (f.weatherIdCard === 800) icon = "/weatherIcons/sun.png";
+            else if (f.weatherIdCard > 800) icon = "/weatherIcons/cloudy.png";
+            imgCard.src = icon;
+        }
+    }
 }

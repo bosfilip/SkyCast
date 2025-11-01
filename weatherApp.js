@@ -72,6 +72,18 @@ function dataPlacer(data){
     document.querySelector('#feelsLike').textContent = `Feels like: ${feels_like}°C`;
     document.querySelector('#humidity').textContent = `Humidity: ${humidity}%`;
     document.querySelector('#windSpeed').textContent = `Wind: ${windSpeed} km/h`;
+    console.log(forecast)
+    const mainWeatherId = forecast[1].weatherIdCard;
+    let mainIcon = "/weatherIcons/sun.png";
+
+    if (mainWeatherId >= 200 && mainWeatherId < 600) mainIcon = "/weatherIcons/raining.png";
+    else if (mainWeatherId >= 600 && mainWeatherId < 700) mainIcon = "/weatherIcons/snow.png";
+    else if (mainWeatherId >= 700 && mainWeatherId < 800) mainIcon = "/weatherIcons/fog.png";
+    else if (mainWeatherId === 800) mainIcon = "/weatherIcons/sunny.png";
+    else if (mainWeatherId > 800) mainIcon = "/weatherIcons/partly-cloudy.png";
+
+    document.querySelector('#mainWeatherImg').src = mainIcon;
+
 
     for (let i = 1; i <= 6; i++){
         const hourCard = document.querySelector(`#hourCard${i}`);
@@ -84,11 +96,11 @@ function dataPlacer(data){
             tempCard.textContent = `${f.tempMinCard.toFixed(1)}°C - ${f.tempMaxCard.toFixed(1)}°C`;
             weatherCard.textContent = f.weatherDescriptionCard;
             let icon = "/weatherIcons/sun.png";
-            if (f.weatherIdCard >= 200 && f.weatherIdCard < 600) icon = "/weatherIcons/rain.png";
+            if (f.weatherIdCard >= 200 && f.weatherIdCard < 600) icon = "/weatherIcons/raining.png";
             else if (f.weatherIdCard >= 600 && f.weatherIdCard < 700) icon = "/weatherIcons/snow.png";
             else if (f.weatherIdCard >= 700 && f.weatherIdCard < 800) icon = "/weatherIcons/fog.png";
-            else if (f.weatherIdCard === 800) icon = "/weatherIcons/sun.png";
-            else if (f.weatherIdCard > 800) icon = "/weatherIcons/cloudy.png";
+            else if (f.weatherIdCard === 800) icon = "/weatherIcons/sunny.png";
+            else if (f.weatherIdCard > 800) icon = "/weatherIcons/partly-cloudy.png";
             imgCard.src = icon;
         }
     }
